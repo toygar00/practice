@@ -26,14 +26,18 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
-if (process.env.NODE_EV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 	// Express will server up production assets (main js/css)
 
 	app.use(express.static('client/build'));
 
 	// Express will server index.html if route is not recognised
 	const path = require('path');
+
+	console.log('ENV = PRODUCTION, PRE *');
 	app.get('*', (req, res) => {
+		console.log('ENV = PRODUCTION, AFTER *');
+
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
 }
