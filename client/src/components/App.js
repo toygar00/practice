@@ -3,10 +3,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-
-const SurverNew = () => <h2>SurverNew</h2>;
 
 class App extends React.Component {
   componentDidMount() {
@@ -16,16 +15,14 @@ class App extends React.Component {
   render() {
     // Container for materiul UI requires
     return (
-      <div className="container">
         <BrowserRouter>
-          <div>
+          <div className="container">
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
-            <Route path="/surveys/new" component={SurverNew} />
+            <Route path="/surveys/new" component={SurveyNew} />
           </div>
         </BrowserRouter>
-      </div>
     );
   }
 }
