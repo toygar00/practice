@@ -23,7 +23,7 @@ module.exports = app => {
 		});
 
 		// set by passport
-		req.user.credits += 5;
+		req.user.credits += 200;
 		const user = await req.user.save();
 
 		res.send(user);
